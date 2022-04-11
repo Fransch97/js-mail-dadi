@@ -142,6 +142,10 @@ gameNavBtn.addEventListener('click', function(){
 const startGame = document.querySelector('.lancia');
 console.log(startGame)
 
+const gameP = document.querySelector('.game-paragraf');
+
+const gameH3 = document.querySelector('.game-h3');
+
 startGame.addEventListener('click',function(){
     // console.log(Math.ceil(Math.random()*6))
     let playerNumber = Math.ceil(Math.random()*6)
@@ -152,9 +156,16 @@ startGame.addEventListener('click',function(){
 
     if(playerNumber == pcNumber){
         console.log("avete pareggiato");
+        gameH3.innerHTML = "Avete pareggiato";
+        gameP.innerHTML = `Havete pareggiato tirando entrambi ${playerNumber}`;
     } else if(playerNumber > pcNumber){
         console.log("player ha vinto");
+        gameH3.innerHTML = "Hai vinto";
+        gameP.innerHTML = `Hai vinto con ${playerNumber} <br> contro Pc con ${pcNumber}`;
     } else{
-        console.log("pc ha vinto")
+        console.log("pc ha vinto");
+        gameH3.innerHTML = "Hai perso";
+        gameP.innerHTML = `Hai perso con ${playerNumber} <br> contro Pc con ${pcNumber}`;
+
     }
 })
