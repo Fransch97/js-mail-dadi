@@ -264,6 +264,7 @@ const gameH3 = document.querySelector('.game-h3');
 let playerScore = 0;
 let pcScore = 0;
 
+const imgBank = ['0','<img src="img/uno.png" alt="">','<img src="img/due.png" alt="">','<img src="img/tre.png" alt="">','<img src="img/quattro.png" alt="">', '<img src="img/cinque.png" alt="">', '<img src="img/sei.png" alt="">']
 
 startGame.addEventListener('click',function(){
     // console.log(Math.ceil(Math.random()*6))
@@ -272,6 +273,12 @@ startGame.addEventListener('click',function(){
 
     let pcNumber = Math.ceil(Math.random()*6)
     console.log("ps", pcNumber)
+
+    const htmlPlayerImg = document.querySelector('.imgplayer');
+    const htmlPcImg = document.querySelector('.imgpc');
+
+    htmlPlayerImg.innerHTML = imgBank[playerNumber];
+    htmlPcImg.innerHTML = imgBank[pcNumber];
 
     if(playerNumber == pcNumber){
         console.log("avete pareggiato");
