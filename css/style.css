@@ -1,0 +1,45 @@
+/* GENERALS  */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* END GENERALS  */
+
+/* BLOCK CLASSES */
+    .display-none{
+        display: none;
+    }
+    
+    .display-block{
+        display: block;
+    }
+
+    .display-flex{
+        display: flex;
+    }
+
+    .display-in-block{
+        display: inline-block;
+    }
+/*END BLOCK CLASSES */
+
+
+/* HEADER  */
+nav{
+    background-color: rgb(127, 221, 77);
+}
+ul{
+    display: flex;
+    width: 20%;
+    margin: 0 20px;
+    
+}
+li{
+    list-style: none;
+}
+
+
+
+/*END HEADER  */
