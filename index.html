@@ -34,7 +34,7 @@
 
     <main>
         <!-- NOT LOGGED -->
-        <div class="notlogged">
+        <div class="notlogged display-none">
             <h1 class="text-center pt-5">Benvenuto nel Casino <br> Fransch</h1>
             <h3 class="text-center pt-5">Accedi per poter giocare</h3>
             <div class="text-center pt-5"><button class="btn btn-dark accedi-js">Accedi</button></div>
@@ -42,8 +42,18 @@
         <!--END NOT LOGGED -->
 
         <!-- LOGIN  -->
-        <div class="login ">
+        <div class="container login display-none">
+            <div class="row d-flex justify-content-center">
+                <div class="col-4 d-flex flex-column">
+                    <h1 class="text-center pt-5">Inserisci i tuoi dati</h1>
+                    <label class="display-block pt-5" for="">Email</label>
+                    <input class="display-block" type="email">
+                    <label class="display-block pt-5" for="">Password</label>
+                    <input class="display-block mb-5" type="password">
 
+                    <button class="btn btn-dark ">Login</button>
+                </div>
+            </div>
         </div>
         <!--END LOGIN -->
 
@@ -55,7 +65,7 @@
 
         <!-- GAME  -->
         <div class="game">
-            
+
         </div>
         <!--END GAME  -->
     </main>
