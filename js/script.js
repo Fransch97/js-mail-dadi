@@ -41,13 +41,22 @@ const navLoginBtn = document.querySelector('.accedi-nav');
 
 const navLogoutBtn = document.querySelector('.logout-nav');
 
+const formfakes = document.querySelector('.register-container');
+
+const registerNavBtn = document.querySelector('.register-nav');
+
 
 let logged = false;
 console.log(logged);
 
 const submitBtn = document.querySelector('.submit-fake');
-console.log(submitBtn)
+console.log(submitBtn);
+
+const submitRegister = document.querySelector('.submit-register-fake')
+console.log(submitRegister)
+
 const mailAcc = ["a@gmail.com", "b@gmail.com", "c@gmail.com"]
+const passwordAcc = ["parolaccia", "banana", "acdc"]
 
 
 const headernotlogged = document.querySelector('.notlogged>h1');
@@ -64,10 +73,17 @@ loginBtnMain.addEventListener('click', function(){
     loginContainer.classList.toggle('display-none');
 })
 
+navLoginBtn.addEventListener('click',function(){
+    notLoggedContainer.classList.remove('display-none');
+    loginContainer.classList.add('display-none');
+    formfakes.classList.add('display-none');
+})
 welcomeBtn.addEventListener('click', function(){
     if(!(logged)){
         notLoggedContainer.classList.remove('display-none');
         loginContainer.classList.add('display-none');
+        formfakes.classList.add('display-none');
+
     } else{
         gameSection.classList.add('display-none');
         notLoggedContainer.classList.remove('display-none');
@@ -109,6 +125,7 @@ submitBtn.addEventListener('click', function test(){
 
             navLogoutBtn.classList.remove('display-none');
 
+            registerNavBtn.classList.add('display-none')
 
             gameMainBtn.classList.remove('display-none');
             trovato = true;
@@ -118,8 +135,12 @@ submitBtn.addEventListener('click', function test(){
         //     loginContainer.innerHTML += `<p class="errorP" style="color:red;">Email sbagliata o non registrata</p>`
         // }
     }
-    if(!(trovato)){
-        document.querySelector('.messaggio-errore').innerHTML += `<p class="errorP text-center" style="color:red;">Email sbagliata o non registrata</p>`;
+    const errms = document.querySelector('.messaggio-errore>p');
+    console.log(errms)
+    
+    if(!(trovato ) ){
+        
+        document.querySelector('.messaggio-errore').innerHTML += `<p class="errorP text-center" style="color:red;">Email sbagliata o non registrata <br> Tranquillo! Puoi registrarti schiacciando nel menu sopra su "Registrati" lo si fa in men che si dica </p>`;
     }
 })
 
@@ -144,6 +165,90 @@ gameNavBtn.addEventListener('click', function(){
   
 })
 
+// REGISTER 
+submitRegister.addEventListener('click', function(){
+    const Nome = document.querySelector('.nome').value;
+    // console.log(Nome);
+    const cognome = document.querySelector('.cognome').value;
+    // console.log(cognome);
+    const registerMail = document.querySelector('.email-register').value;
+    // console.log(registerMail);
+    const registerpw = document.querySelector('.password-register').value;
+    // console.log(registerpw);
+    if(Nome === ""){
+        document.querySelector('.nome-label').innerHTML += `
+        <span style = "font-size:12px; color: red">Inserisci un nome</span>
+        `;
+
+
+        console.log(Nome, "nome")
+    }else if(cognome === "" ){
+        document.querySelector('.nome-label').innerHTML = `
+        Nome
+        `;
+        
+        document.querySelector('.cognome-label').innerHTML += `
+        <span style = "font-size:12px; color: red">Inserisci un cognome</span>
+        `;
+        
+        console.log("working 2 if")
+    }else if(registerMail === "" ){
+        document.querySelector('.nome-label').innerHTML = `
+        Nome
+        `;
+        
+        document.querySelector('.cognome-label').innerHTML = `
+        Cognome
+        `;
+
+        document.querySelector('.mail-regi-label').innerHTML += `
+        <span style = "font-size:12px; color: red">Inserisci un email</span>
+        `;
+        console.log("working 3if")
+    }else if(registerpw === ""){
+        document.querySelector('.nome-label').innerHTML = `
+        Nome
+        `;
+        
+        document.querySelector('.cognome-label').innerHTML = `
+        Cognome
+        `;
+
+        document.querySelector('.mail-regi-label').innerHTML = `
+        Email
+        `;
+
+        document.querySelector('.password-register-label').innerHTML += `
+        <span style = "font-size:12px; color: red">Inserisci una password</span>
+
+        `;
+        console.log("working 4if");
+
+    } else{
+        document.querySelector('.password-register-label').innerHTML = `
+        Password
+
+        `;
+        
+        mailAcc.push(registerMail);
+        console.log(mailAcc)
+        console.log(formfakes);
+        alert("Registrazione completata perfavore fare Login");
+        formfakes.classList.add('display-none');
+        notLoggedContainer.classList.remove('display-none')
+    }
+// else{
+//     console.log(mailAcc) }
+})
+
+
+registerNavBtn.addEventListener('click', function(){
+    notLoggedContainer.classList.add('display-none');
+    loginContainer.classList.add('display-none');
+
+    formfakes.classList.remove('display-none');
+
+})
 
 // Gioco dei dadi
 // Generare un numero random da 1 a 6, sia per il giocatore sia per il computer.
@@ -155,6 +260,10 @@ console.log(startGame)
 const gameP = document.querySelector('.game-paragraf');
 
 const gameH3 = document.querySelector('.game-h3');
+
+let playerScore = 0;
+let pcScore = 0;
+
 
 startGame.addEventListener('click',function(){
     // console.log(Math.ceil(Math.random()*6))
@@ -172,10 +281,13 @@ startGame.addEventListener('click',function(){
         console.log("player ha vinto");
         gameH3.innerHTML = "Hai vinto";
         gameP.innerHTML = `Hai vinto con ${playerNumber} <br> contro Pc con ${pcNumber}`;
+        playerScore++;
     } else{
         console.log("pc ha vinto");
         gameH3.innerHTML = "Hai perso";
         gameP.innerHTML = `Hai perso con ${playerNumber} <br> contro Pc con ${pcNumber}`;
-
+        pcScore++;
     }
+    document.querySelector('.span-player').innerHTML = `Il tuo punteggio è : ${playerScore}`;
+    document.querySelector('.span-pc').innerHTML = `Il punteggio del pc è : ${pcScore}`;
 })

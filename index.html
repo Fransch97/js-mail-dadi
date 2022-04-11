@@ -26,8 +26,9 @@
                 <li class="btn btn-dark play-game-btn">Gioca</li>
             </ul>
 
-            <ul class="pt-4 pb-4 justify-content-end accedi-ul-js">
-                <li class="btn btn-dark accedi-nav">Accedi</a></li>
+            <ul class="pt-4 pb-4 justify-content-around accedi-ul-js">
+                <li class="btn btn-dark accedi-nav ">Accedi</a></li>
+                <li class="btn btn-dark register-nav">Registrati</a></li>
                 <li class="btn btn-dark logout-nav display-none">Logout</a></li>
             </ul>
         </nav>
@@ -67,12 +68,38 @@
         <!-- GAME  -->
         <div class="game text-center display-none">
             <h1 class="text-center pt-5">Gioco dei Dadi</h1>
+            <span class="span-player">Il tuo punteggio: 0</span> <span class="span-pc"> Punteggio del Pc: 0</span>
             <h3 class="game-h3 text-center pt-5">Lancia i dadi giocando contro il Pc.</h3>
             <p class="game-paragraf text-center pt-5 pb-5">Schiaccia il bottone "Lancia" per iniziare il gioco. <br> Chi fa il punteggio più alto ha vinto. <br> Divertiti senza essagerare. Buona fortuna! </p>
             <button class="btn btn-dark lancia ">Lancia</button>
 
         </div>
         <!--END GAME  -->
+
+        <!-- REGISTER -->
+        <div class="register-container container display-none">
+            <div class="row d-flex justify-content-center">
+                <div class="col-4 ">
+
+                    <h1 class="text-center pt-5">Inserisci i tuoi dati per la registrazione</h1>
+                    <div class="ananas d-flex flex-column">
+                        <label class="display-block pt-5 nome-label" for="">Nome</label>
+                        <input class="display-block nome" type="text">
+                        <label class="display-block pt-5 cognome-label" for="">Cognome</label>
+                        <input class="display-block cognome" type="text">
+                        <label class="display-block pt-5 mail-regi-label" for="">Email</label>
+                        <input class="display-block email-register" type="email">
+                        
+                        <label class="display-block pt-5 password-register-label" for="">Password</label>
+                        <input class="display-block mb-5 password-register" type="password">
+                        <button class="btn btn-dark submit-register-fake mb-3">Registrati</button>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        <!--END REGISTER -->
 
        
     </main>
