@@ -42,7 +42,7 @@ const navLoginBtn = document.querySelector('.accedi-nav');
 const navLogoutBtn = document.querySelector('.logout-nav');
 
 
-let logged = true;
+let logged = false;
 console.log(logged);
 
 const submitBtn = document.querySelector('.submit-fake');
@@ -84,10 +84,10 @@ welcomeBtn.addEventListener('click', function(){
         
     }
 })
+let trovato ;
 
 submitBtn.addEventListener('click', function test(){
     let mailValue = document.querySelector('.email').value;
-
     for(i = 0; i < mailAcc.length; i++){
         mailAcc[i];
         console.log(mailAcc[i])
@@ -95,7 +95,6 @@ submitBtn.addEventListener('click', function test(){
         if(mailAcc[i] === mailValue ){
             logged = true;
             console.log(logged);
-            alert("loggato");
 
             navLoginBtn.classList.add('display-none')
 
@@ -112,12 +111,18 @@ submitBtn.addEventListener('click', function test(){
 
 
             gameMainBtn.classList.remove('display-none');
+            trovato = true;
+
         } 
         // else if (!(errormessage) || (mailAcc === mailValue) ){
         //     loginContainer.innerHTML += `<p class="errorP" style="color:red;">Email sbagliata o non registrata</p>`
         // }
     }
+    if(!(trovato)){
+        document.querySelector('.messaggio-errore').innerHTML += `<p class="errorP text-center" style="color:red;">Email sbagliata o non registrata</p>`;
+    }
 })
+
 
 navLogoutBtn.addEventListener('click', function(){
     location.reload();
@@ -130,8 +135,13 @@ gameMainBtn.addEventListener('click', function(){
 })
 
 gameNavBtn.addEventListener('click', function(){
-    notLoggedContainer.classList.add('display-none');
-    gameSection.classList.remove('display-none');
+    if(logged === true){
+        notLoggedContainer.classList.add('display-none');
+        gameSection.classList.remove('display-none');
+    }else{
+        alert("Fai login per giocare")
+    }
+  
 })
 
 
