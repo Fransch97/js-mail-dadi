@@ -49,7 +49,6 @@ const submitBtn = document.querySelector('.submit-fake');
 console.log(submitBtn)
 const mailAcc = ["a@gmail.com", "b@gmail.com", "c@gmail.com"]
 
-let mailValue = document.querySelector('.email').value;
 
 const headernotlogged = document.querySelector('.notlogged>h1');
 
@@ -87,6 +86,7 @@ welcomeBtn.addEventListener('click', function(){
 })
 
 submitBtn.addEventListener('click', function test(){
+    let mailValue = document.querySelector('.email').value;
 
     for(i = 0; i < mailAcc.length; i++){
         mailAcc[i];
