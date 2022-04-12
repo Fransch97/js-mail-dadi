@@ -274,6 +274,10 @@ startGame.addEventListener('click',function(){
     let pcNumber = Math.ceil(Math.random()*6)
     console.log("ps", pcNumber)
 
+
+    var audio = new Audio('dodos.wav');
+  audio.play();
+
     const htmlPlayerImg = document.querySelector('.imgplayer');
     const htmlPcImg = document.querySelector('.imgpc');
 
